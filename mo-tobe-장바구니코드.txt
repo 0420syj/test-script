@@ -1,0 +1,34 @@
+// 옵션
+const prices = document.getElementsByClassName('prod-price')
+//prices[i].innerText
+const options = document.getElementsByClassName('prod-option')
+//options[i+1].innerText
+
+const data = document.getElementsByClassName('estimated-info-area')
+// 판매금액
+// 배송비
+// 할인금액 합계
+//data[0].getElementsByTagName('dd')[0].innerText
+//data[0].getElementsByTagName('dd')[1].innerText
+//data[0].getElementsByTagName('dd')[2].innerText.substr(1)
+
+// 최종결제금액
+const finalPrice = document.getElementsByClassName('price-total')
+// finalPrice[0].getElementsByTagName('dd')[0].innerText
+
+let str = ""
+
+if(prices.length) {
+    for(let i=0; i<prices.length; i++) {
+        let optionWithPrice = options[i+1].innerText + ' ' + prices[i].innerText + '\t'
+        let priceData = data[0].getElementsByTagName('dd')[0].innerText + '\t' + data[0].getElementsByTagName('dd')[1].innerText + '\t' + ((typeof data[0].getElementsByTagName('dd')[2] === 'undefined') ? '0원' : data[0].getElementsByTagName('dd')[2].innerText.substr(1)) + '\t' + finalPrice[0].getElementsByTagName('dd')[0].innerText
+        str += optionWithPrice + priceData + '\t' + priceData + '\n'
+    }
+}
+else {
+    let optionWithPrice = '[기본옵션] ' + document.getElementsByClassName('total-price')[0].getElementsByTagName('strong')[0].innerText + '원\t'
+    let priceData = data[0].getElementsByTagName('dd')[0].innerText + '\t' + data[0].getElementsByTagName('dd')[1].innerText + '\t' + ((typeof data[0].getElementsByTagName('dd')[2] === 'undefined') ? '0원' : data[0].getElementsByTagName('dd')[2].innerText.substr(1)) + '\t' + finalPrice[0].getElementsByTagName('dd')[0].innerText
+    str += optionWithPrice + priceData + '\t' + priceData
+}
+console.log(str)
+

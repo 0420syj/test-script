@@ -1,0 +1,18 @@
+const title = document.getElementsByClassName('prod-title')
+const code = document.getElementsByClassName('info-box')
+const data = document.getElementsByClassName('prod-price')
+
+let output = ""
+
+for(let i=0; i<data.length; i++) {
+    let str = ""
+    if(data[i].getElementsByTagName('p').length > 1) {
+        str += title[i].getElementsByTagName('strong')[0].innerText + '\t' + code[i].dataset.ecProduct.substr(code[i].dataset.ecProduct.indexOf("ecom_prd_id")+14,10) + '\t' + data[i].getElementsByTagName('p')[0].getElementsByTagName('strong')[0].innerText + '%' + '\t' + data[i].getElementsByTagName('p')[0].getElementsByTagName('del')[0].innerText + '\t' + data[i].getElementsByTagName('p')[1].getElementsByTagName('strong')[0].innerText + '원'
+    }
+    else {
+        str += title[i].getElementsByTagName('strong')[0].innerText + '\t' + code[i].dataset.ecProduct.substr(code[i].dataset.ecProduct.indexOf("ecom_prd_id")+14,10) + '\t\t' + data[i].getElementsByTagName('strong')[0].innerHTML + '원'
+    }
+    output += str + '\n'
+}
+
+console.log(output)

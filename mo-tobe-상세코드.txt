@@ -1,0 +1,49 @@
+// 할인율
+const discount = document.getElementsByClassName('sale-percent')
+//discount[0].innerText
+
+// 정상가
+const oriPrice = document.getElementsByTagName('del')
+//oriPrice[0].innerText
+
+// 할인가
+const discountPrice = document.getElementsByClassName('dis-price')
+//discountPrice[0].innerText
+
+//배송비
+const shipping = document.getElementsByClassName('shipping-info-area')
+//shipping[0].getElementsByTagName('dd')[0].getElementsByTagName('p')[0].innerText
+
+//옵션
+const options = document.getElementsByClassName('c-radio-box-2')
+//options[0].getElementsByClassName('txt')[i].innerText
+const option = document.getElementsByClassName('top')
+//option[0].getElementsByTagName('span')[0].innerText
+const withPrice = document.getElementsByClassName('price-total')
+
+let str = ""
+
+if(options.length){
+for(let i=0; i<options[0].getElementsByClassName('txt').length; i++) {
+if(discount.length) str+=discount[0].innerText + '\t'
+else str += '\t'
+if(discount.length) str+=oriPrice[0].innerText + '\t'
+else str += discountPrice[0].innerText + '\t'
+if(discount.length) str+=discountPrice[0].innerText + '\t'
+else str += '\t'
+if(shipping.length) str+=shipping[0].getElementsByTagName('dd')[0].getElementsByTagName('p')[0].innerText + '\t'
+if(options.length) str+=options[0].getElementsByClassName('txt')[i].innerText + '\n'
+}}
+
+else {
+if(discount.length) str+=discount[0].innerText + '\t'
+else str += '\t'
+if(discount.length) str+=oriPrice[0].innerText + '\t'
+else str += discountPrice[0].innerText + '\t'
+if(discount.length) str+=discountPrice[0].innerText + '\t'
+else str += '\t'
+if(shipping.length) str+=shipping[0].getElementsByTagName('dd')[0].getElementsByTagName('p')[0].innerText + '\t'
+if(option.length) str+=option[0].getElementsByTagName('span')[0].innerText + ' ' + withPrice[0].getElementsByTagName('dd')[0].innerText
+}
+console.log(str)
+

@@ -1,0 +1,33 @@
+let str = ""
+
+const percent = document.getElementsByClassName('per')
+const ori = document.getElementsByClassName('ori')
+const prices = document.getElementsByClassName('prices')
+const sale = document.getElementsByClassName('sales')
+const ship = document.getElementsByClassName('cont')
+
+const names = document.getElementsByClassName('names')
+const name = document.getElementsByClassName('name')
+const options = document.getElementsByClassName('options')
+
+if(percent.length !== 0) {
+	str += percent[0].getElementsByTagName('em')[0].innerText +'%\t' + ori[0].innerText.substr(8) + '\t' + sale[0].innerText.substr(6,sale[0].innerText.indexOf("(")-6)
+}
+else {
+	str+= '\t' + prices[0].innerText + '\t'
+}
+
+if(document.getElementsByClassName('intros')[1].getElementsByTagName('div')[0].innerText.length > 4)
+str += '\t' + document.getElementsByClassName('intros')[1].getElementsByTagName('div')[0].innerText.substr(0,6)
+else str += '\t' + document.getElementsByClassName('intros')[1].getElementsByTagName('div')[0].innerText
+
+let output = ""
+
+if(options.length !== 0) {
+for(let i = 1; i<options.length; i++) {
+	output += str + '\t' + names[i+1].innerHTML + ' ' + options[i].innerText + '\n'
+}}
+else output += str + '\t' + name[1].innerText + ' ' + document.getElementById('approvalTotalAmt').innerText + '원' + '\n'
+
+console.log((options.length-2) + '번 행 추가')
+console.log(output)

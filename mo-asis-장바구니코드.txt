@@ -1,0 +1,36 @@
+let str=""
+
+// 옵션내용
+const names = document.getElementsByClassName('names')
+const options = document.getElementsByClassName('options')
+
+// 판매금액
+const sellPrice = document.getElementById('prodTotalAmtDd').innerText
+// 배송비
+const shipPrice = document.getElementById('totDlvAmtDd').innerText
+// 할인금액 합계
+let discountPrice = document.getElementsByClassName('totSaleAmtCpnAmtDd')[0].innerText
+if(document.getElementsByClassName('totSaleAmtCpnAmtDd')[0].innerText.length > 2) discountPrice = discountPrice.substr(1)
+// 최종결제금액
+const finalPrice = document.getElementsByClassName('totStlmPrcDd')[0].innerText
+const checkPrice = document.getElementsByClassName('totStlmPrcDd')[1].innerText
+
+if(finalPrice !== checkPrice) {
+console.log("총 결제 예정 금액 상이함\n\n")
+}
+for(let i=0; i<options.length; i++) {
+str+=names[i+1].innerText + ' ' + options[i].innerText + '\t'
+str+=sellPrice + '\t'
+str+=shipPrice + '\t'
+str+=discountPrice + '\t'
+str+=finalPrice + '\n'
+}
+if(!options.length){
+str+=document.getElementsByClassName('option')[0].getElementsByTagName('dd')[0].innerText.slice(0,-5) + ' ' + document.getElementById('currentSaleAmt1').innerText
+ + '원\t'
+str+=sellPrice + '\t'
+str+=shipPrice + '\t'
+str+=discountPrice + '\t'
+str+=finalPrice
+}
+console.log(str)

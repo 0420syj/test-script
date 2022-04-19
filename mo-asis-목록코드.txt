@@ -1,0 +1,17 @@
+const price = document.getElementsByClassName('plan')
+const model = document.getElementsByClassName('model')
+const code = document.getElementsByClassName('btn_interest')
+
+let output = ""
+
+for(let i=0; i<model.length; i++) {
+    let str = model[i].innerText + '\t' + code[i].dataset.itemid + '\t'
+    let total = ""
+
+    if(price[i].getElementsByTagName('em').length > 1)
+	total += (str + price[i].getElementsByTagName('em')[0].innerHTML + '%\t' + price[i].getElementsByClassName('exist')[0].innerText.substr(4) + '\t' + price[i].getElementsByTagName('em')[1].innerHTML + '원')
+    else total += (str + '\t' + price[i].getElementsByTagName('em')[0].innerHTML + '원')
+    output += total += '\n'
+}
+
+console.log(output)
