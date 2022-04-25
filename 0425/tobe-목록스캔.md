@@ -21,11 +21,30 @@ let output = ""
 
 for(let data of products) {
     const name = data.getElementsByTagName('strong')[0].innerText
-    const price = data.getElementsByTagName('strong')[3].innerText
+    let price = data.getElementsByTagName('strong')[3].innerText
+    if(price === "25") price = data.getElementsByTagName('strong')[4].innerText
+    if(price === "7") price = data.getElementsByTagName('strong')[5].innerText
+    
     output += (name + '\t' + price + '\n')
 }
 
 console.log(output)
+
+```
+
+### tobe-mo 목록 상품명만 스캔
+
+```javascript
+const products = document.getElementsByClassName('prod-info')
+let output = ""
+
+for(let data of products) {
+    const name = data.getElementsByTagName('strong')[0].innerText
+    output += (name + '\n')
+}
+
+console.log(output)
+
 ```
 
 ### asis 목록 가격스캔(상품명+가격)
