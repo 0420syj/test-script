@@ -94,7 +94,8 @@ const 요금제스캔 = async (driver, time) => {
             return len
         `)
 
-        console.log("- 슬라이드 수 : " + length + "개");
+        // 슬라이드가 존재하는 경우
+        if(length) console.log("- 슬라이드 수 : " + length + "개");
 
         // 슬라이드 스캔
         if (length) {
@@ -229,8 +230,8 @@ const 요금제스캔 = async (driver, time) => {
 
     }
 
+    // 최종 결과 출력
     console.log(fullResult)
-
 }
 
 (async function example() {
