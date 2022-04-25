@@ -95,7 +95,7 @@ const 요금제스캔 = async (driver, time) => {
         `)
 
         // 슬라이드가 존재하는 경우
-        if(length) console.log("- 슬라이드 수 : " + length + "개");
+        if (length) console.log("- 슬라이드 수 : " + length + "개");
 
         // 슬라이드 스캔
         if (length) {
