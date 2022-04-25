@@ -174,7 +174,7 @@ const 요금제스캔 = async (driver, time) => {
             // 요금제 선택 대기
             await driver.sleep(100);
 
-             /*
+            /*
             // 저장 버튼 클릭
             await driver.executeScript(`
                 const okBtn = document.getElementsByClassName('c-btn-solid-1-m')[1]
