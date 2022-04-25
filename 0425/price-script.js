@@ -1,9 +1,9 @@
 const { Builder, Key, By, Capabilities } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 
-const 선약할인설정 = async (driver) => {
+const 선약할인설정 = async (driver, link) => {
     // 모바일기기 상세페이지로 이동
-    await driver.get(`https://prod.uplus.co.kr/mobile/5g-phone/xiaomi/Redmi%20Note%2011%20Pro%205G/2201116SG`);
+    await driver.get(link);
     await driver.sleep(10);
 
     // 할인유형 : 선택약정할인 24개월
@@ -241,8 +241,11 @@ const 요금제스캔 = async (driver, time) => {
     chromeCapabilities.set('chromeOptions', { args: ['--headless'] });
     let driver = new Builder().forBrowser('chrome').withCapabilities(chromeCapabilities).setChromeOptions(chromeOptions).build();
 
+    // 모바일기기 상세페이지 링크
+    const mobileDetailLink = 'https://prod.uplus.co.kr/mobile/5g-phone/xiaomi/Redmi%20Note%2011%20Pro%205G/2201116SG'
+
     try {
-        await 선약할인설정(driver);
+        await 선약할인설정(driver, mobileDetailLink);
         await 요금제스캔(driver, 2500);
     }
     finally {
