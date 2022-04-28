@@ -44,7 +44,7 @@ const 요금제스캔 = async (driver,time) => {
     `)
     // console.log(planBox);
 
-    console.log("요금제 " + planBox.length + "개" + " 스캔 시작");
+    console.log("요금제 박스 " + planBox.length + "개" + " 스캔 시작");
 
     let fullResult = ""
 
@@ -141,12 +141,8 @@ const 요금제스캔 = async (driver,time) => {
             await driver.sleep(time);
             
         }
-
-
     }
-    
     console.log(fullResult)
-
 }
 
 (async function example() {
@@ -159,8 +155,6 @@ const 요금제스캔 = async (driver,time) => {
     try {
         await 선약할인설정(driver);
         await 요금제스캔(driver,2500);
-
-
     }
     finally {
         await driver.quit();
